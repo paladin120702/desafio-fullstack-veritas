@@ -1,0 +1,22 @@
+# dependências
+node_modules/
+
+# builds
+frontend/dist/
+backend/kanban
+
+# dados locais da API
+backend/data/
+
+# ambiente
+.env
+.env.local
+
+# documentos externos
+*.pdf
+
+# sistema/editor
+.DS_Store
+.idea/
+.vscode/
+*.log
