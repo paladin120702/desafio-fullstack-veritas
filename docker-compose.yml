@@ -1,0 +1,25 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      DATA_FILE: /app/data/tasks.json
+      CORS_ORIGINS: "*"
+    volumes:
+      - kanban-data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        # Endereço acessado pelo navegador do usuário, não pela rede do Compose.
+        VITE_API_URL: http://localhost:8080/api
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  kanban-data:
