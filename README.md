@@ -7,6 +7,29 @@ tarefas, movimentação por drag and drop (ou pelos botões `‹ ›`) e persist
 
 ---
 
+
+## O que este projeto demonstra
+
+Desafio de estudo/portfólio relevante para **Desenvolvimento Júnior** e **Suporte de Sistemas Júnior**:
+
+- **Desenvolvimento:** CRUD com React e API REST em Go, validação de dados, atualização otimista e persistência em JSON.
+- **Investigação de falhas:** health check, logs de acesso com método/rota/status/duração e respostas de erro estruturadas.
+- **Documentação e comunicação técnica:** fluxos do usuário e dos dados, decisões de implementação e limitações descritas para facilitar reprodução e manutenção.
+
+Evidências: [`handlers.go`](backend/handlers.go), [`middleware.go`](backend/middleware.go), [`store.go`](backend/store.go), [`handlers_test.go`](backend/handlers_test.go) e [`useTasks.js`](frontend/src/hooks/useTasks.js).
+
+## Diagnóstico no ambiente local
+
+| Sintoma | Conferência sugerida |
+|---|---|
+| Quadro não carrega | Testar `GET /api/health`; conferir `VITE_API_URL`, porta e serviço da API. |
+| Funciona via curl, mas não no navegador | Conferir a origem do frontend em `CORS_ORIGINS` e a resposta ao preflight. |
+| Tarefa recusada com `400` | Conferir o corpo JSON e os motivos em `error.fields`. |
+| Tarefas somem ao reiniciar | Verificar se `DATA_FILE` está vazio e, no Docker, se o volume de dados foi preservado. |
+| Falha ao gravar ou iniciar o armazenamento | Conferir caminho/permissões de `DATA_FILE` e logs do backend; preservar uma cópia do JSON antes de alterar dados. |
+
+Na execução por Compose, `docker compose ps` e `docker compose logs --tail=100` ajudam a localizar a etapa com erro. Registrar os passos e o resultado esperado antes de alterar a implementação.
+
 ## Sumário
 
 - [Como rodar](#como-rodar)
