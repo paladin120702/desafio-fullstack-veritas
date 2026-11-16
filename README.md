@@ -10,7 +10,7 @@ tarefas, movimentação por drag and drop (ou pelos botões `‹ ›`) e persist
 
 ## O que este projeto demonstra
 
-Desafio de estudo/portfólio relevante para **Desenvolvimento Júnior** e **Suporte de Sistemas Júnior**:
+Desafio de estudo/portfólio relevante para **Desenvolvimento Fullstack** e **Suporte de Sistemas Júnior**:
 
 - **Desenvolvimento:** CRUD com React e API REST em Go, validação de dados, atualização otimista e persistência em JSON.
 - **Investigação de falhas:** health check, logs de acesso com método/rota/status/duração e respostas de erro estruturadas.
